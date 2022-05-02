@@ -79,24 +79,21 @@ class Admin(User):
             raw_data = f.read()
         course_data = json.loads(raw_data)["unit"]["items"]
 
-        with open('courses.txt','a') as f:
+        with open('user_instructor.txt','a') as f:
             
             for course in course_data:
                 instrustors = course.get("visible_instructors",[])
                 course_id = course.get('id')
                 
-                 
-
                 for instrustor in instrustors:
                     instrustor_id = instrustor.get("id")
-                    username = instrustor.get("title")
-                    password = instrustor.get("image_100x100")
-                    display_name = instrustor.get("headline").replace("\n"," ")
-                    job_title = instrustor.get("num_subscribers")
-                    image_100x100 = instrustor.get("avg_rating")
-                    course_content_length = instrustor.get("content_info").replace("total hours","")
+                    username = instrustor.get("display_name","").replace(" ","_")
+                    password = instrustor_id
+                    display_name = instrustor.get("display_name")
+                    job_title = instrustor.get("job_title").replace("\n"," ")
+                    image_100x100 = instrustor.get("image_100x100")
 
-                    f.writelines(f"{course_id};;;{course_title};;;{image_100x100};;;{headline};;;{num_of_subscribers};;;{avg_rating};;;{course_content_length}\n")
+                    f.writelines(f"{instrustor_id};;;{username};;;{password};;;{display_name};;;{job_title};;;{image_100x100};;;{course_id}\n")
 
     def extract_info(self):
         self.extract_course_info()
@@ -131,4 +128,4 @@ class Admin(User):
 
 
 admin = Admin()
-admin.extract_students_info()
+admin.view_users()

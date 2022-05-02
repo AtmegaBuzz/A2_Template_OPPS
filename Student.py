@@ -21,7 +21,17 @@ class Student(User):
         pass
 
     def view_reviews(self,args=[]):
-        pass
+        
+        with open('review.txt','r') as f:
+            reviews = f.readlines()
+        for review in reviews:
+            review_data = review.split(";;;")
+            review_id = review_data[0]
+            if review_id==self.review_id:
+                review_content = review_data[1]
+                print(review_content)
+                break
+
 
 
     def __str__(self) -> str:
