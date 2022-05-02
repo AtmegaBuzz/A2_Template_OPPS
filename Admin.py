@@ -10,7 +10,21 @@ class Admin(User):
         super().__init__(id_, username, password)
 
     def register_admin(self):
-        pass
+        
+        with open('user_admin.txt','r') as f:
+            admins = f.readlines()
+
+        for admin in admins:
+            admin_data = admin.split(";;;")
+            username = admin_data[1]
+            password = admin_data[2]
+            if username==self.username and password==self.password:
+                print("Admin already exist")
+                return 
+        
+        with open('user_admin.txt','a') as f:
+            f.write(f"{self.id};;;{self.username};;;{self.password}\n")
+        
 
     def extract_course_info(self):
         filename = "data/course_data/raw_data2.txt"
@@ -70,7 +84,7 @@ class Admin(User):
                     user_image = review.get('user').get('image_50x50')
                     user_initials = review.get('user').get('initials')
                     review_id = review.get('id')
-                    password = f"{user_initials}{user_id}{user_initials}"
+                    password = self.encryption(f"{user_initials}{user_id}{user_initials}")
 
                     f.write(f"{user_id};;;{username};;;{password};;;{user_title};;;{user_image};;;{user_initials};;;{review_id}\n")
                  
@@ -90,7 +104,7 @@ class Admin(User):
                 for instrustor in instrustors:
                     instrustor_id = instrustor.get("id")
                     username = instrustor.get("display_name","").replace(" ","_")
-                    password = instrustor_id
+                    password = self.encryption(instrustor_id)
                     display_name = instrustor.get("display_name")
                     job_title = instrustor.get("job_title").replace("\n"," ")
                     image_100x100 = instrustor.get("image_100x100")

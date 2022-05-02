@@ -1,3 +1,4 @@
+from random import randint
 
 class User:
    
@@ -11,21 +12,54 @@ class User:
       self.password = self.encryption(self.__mod,self.__p,password)
       
 
-   @staticmethod
-   def encryption(mod,p,password):
+   def encryption(self,password):
       p_power = 1
       hash_value = 0
 
       for char in password:
-         hash_value = (hash_value + (ord(char)-ord('a')+1)*p_power) % mod
-         p_power = p_power * p % mod
+         hash_value = (hash_value + (ord(char)-ord('a')+1)*p_power) % self.mod
+         p_power = p_power * self.p % self.mod
       return hash_value
 
    def login(self):
-      pass
+      
+      core = ['user_admin.txt','user_instructor.txt','user_student.txt']
+      role = {
+         'user_admin.txt':'Admin',
+         'user_instructor.txt':'Instructor',
+         'user_student.txt':'Student'
+      }
+      for _file_ in core:
+         with open(_file_,'r') as f:
+            users = f.readlines()
+         for user in users:
+            user_data = user.split(";;;")
+            username = user_data[1]
+            password = user_data[2]
+
+            if self.username==username and self.password==password:
+               return (True,role.get(_file_),f"{self.id};;;{self.username}")
+         
+         return (False,None,None)
+
 
    def generate_unique_user_id(self):
-      pass
+      core = ['user_admin.txt','user_instructor.txt','user_student.txt']
+      
+      while(True):
+         u_id = randint(999999999,10000000000)
+         for _file_ in core:
+            with open(_file_,'r') as f:
+               users = f.readlines()
+            for user in users:
+               user_data = user.split(";;;")
+               user_id = user_data[0]
+
+               if user_id == str(u_id):
+                  continue
+         
+         return u_id
+
 
    def extract_info(self):
       print('You have no permission to extract information')
@@ -43,6 +77,6 @@ class User:
       print("You have no permission to remove data")
    
    def __str__(self) -> str:
-      return "{};;;{};;;{}".format(self.id,self.username,self.password)
+      return f"{self.id};;;{self.username};;;{self.password}"
 
 
