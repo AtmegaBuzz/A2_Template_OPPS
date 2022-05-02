@@ -1,4 +1,5 @@
 
+
 class Course:
     
     def __init__(
@@ -20,17 +21,65 @@ class Course:
         self.course_avg_rating = course_avg_rating
         self.course_content_length = course_content_length
 
-    def find_course_by_title_keyword(self,keyword):
-        pass
+    def find_course_by_title_keyword(cls,keyword):
+        result = []
+        with open('course.txt','r') as f:
+            courses = f.readlines()
+        
+        for course in courses:
+            course_data = course.split(";;;")
+            course_title = course_data[1]
+            if keyword in course_title:
+                
+                result.append(Course(*course_data))
 
-    def find_course_by_id(self,course_id):
-        pass
+        return result
 
-    def find_course_by_instructor_id(self,instructor_id):
-        pass
+    def find_course_by_id(cls,course_id):
 
-    def courses_overview(self):
-        pass        
+        course_id = str(course_id)
+        with open('course.txt','r') as f:
+            courses = f.readlines()
+        
+        for course in courses:
+            course_data = course.split(";;;")
+            __course_id__ = course_data[0]
+            if course_id == __course_id__:
+                return Course(*course_data)
+                
+
+    def find_course_by_instructor_id(cls,instructor_id):
+        course_ids = []
+        result = []
+        instructor_id = str(instructor_id)
+        with open('user_instructor.txt','r') as f:
+            instructors = f.readlines()
+        
+        for instructor in instructors:
+            instructor_data = instructor.split(";;;")
+            __instructor_id__ = instructor_data[0]
+            if __instructor_id__==instructor_id:
+                course_ids = instructor_data[-1].split("-")
+        if len(course_ids==0): return result
+        
+        with open('courses.txt','r') as f:
+            courses = f.readlines()
+
+        for course in courses:
+            course_data = course.split(";;;")
+            course_id = course_data[0]
+            if course_id in course_ids:
+                result.append(Course(*course_data))
+
+        return result
+
+        
+
+    def courses_overview(cls):
+        
+        with open('courses.txt','r') as f:
+            courses = f.readlines()
+            return len(courses)      
 
     def __str__(self):
         return f"{self.course_id};;;{self.course_title};;;{self.course_image_100x100};;;{self.course_headline};;;{self.course_num_subscribers};;;{self.course_avg_rating};;;{self.course_content_length}"

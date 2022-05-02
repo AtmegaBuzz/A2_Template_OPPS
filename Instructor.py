@@ -1,4 +1,9 @@
+from unittest import result
+
+from bs4 import ResultSet
 from User import User
+from Course import Course
+from Review import Review
 
 class Instructor(User):
     
@@ -19,10 +24,25 @@ class Instructor(User):
         super().__init__(id_, username, password)
 
     def view_courses(self,args=[]):
-        pass
+
+        result = Course().find_course_by_instructor_id(self.id) 
+
+        for course in result[:11]:
+            print(course)
+
+
 
     def view_reviews(self,args=[]):
-        pass
+        courses_teached = Course().find_course_by_instructor_id(self.id) 
+        result = []
+        for course in courses_teached:
+            result += Review().find_review_by_course_id(course.course_id)
+
+        for review in result[:11]:
+            print(review)
+        
+        print("Total Reviews: ",len(result))
+                   
 
     def __str__(self) -> str:
         parent_attrs = super().__str__()

@@ -13,17 +13,54 @@ class Review:
         self.rating = rating
         self.course_id = course_id
 
-    def find_review_by_id(self,review_id):
-        pass
+    def find_review_by_id(cls,review_id):
+        
+        with open('review.txt','r') as f:
+            reviews = f.readlines()
+        
+        for review in reviews:
+            review_data = review.split(";;;")
+            __review_id__ = review_data[0]
 
-    def find_review_by_keywords(self,keyword):
-        pass
+            if __review_id__==review_id:
+                return Review(*review_data)
+        
 
-    def find_review_by_course_id(self,course_id):
-        pass
+    def find_review_by_keywords(cls,keyword):
+        if keyword=="": 
+            print("keyword cannot be empty") 
+            return []
+        result = []
+        with open('review.txt','r') as f:
+            reviews = f.readlines()
+        
+        for review in reviews:
+            review_data = review.split(";;;")
+            review_content = review_data[1]
 
-    def reviews_overview():
-        pass
+            if keyword==review_content:
+                result.append(Review(*review_data))
+
+        return result
+
+    def find_review_by_course_id(cls,course_id):
+        course_id = str(course_id)
+        result = []
+        with open('review.txt','r') as f:
+            reviews = f.readlines()
+        
+        for review in reviews:
+            review_data = review.split(";;;")
+            __course_id__ = review_data[-1]
+
+            if __course_id__==course_id:
+                result.append(Review(*review_data))
+
+
+    def reviews_overview(cls):
+        with open('review.txt','r') as f:
+            reviews = f.readlines()
+            return len(reviews)
 
     def __str__(self) -> str:
         return f"{self.id_};;;{self.content};;;{self.rating};;;{self.course_id}"

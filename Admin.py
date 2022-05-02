@@ -1,4 +1,6 @@
 from User import User
+from Review import Review
+from Course import Course
 import json 
 import glob
 
@@ -109,7 +111,24 @@ class Admin(User):
         
 
     def view_courses(self,args=[]):
-        pass
+        if len(args)==0:
+            print(Course.courses_overview())
+        elif len(args)==2:
+            command = args[0]
+            value = args[1]
+            course_driver = Course()
+
+            if command=='TITLE_KEYWORD':
+                course_driver.find_course_by_title_keyword(value)
+            elif command=='ID':
+                course_driver.find_course_by_id(value)
+            elif command=='INSTRUCTOR_ID':
+                course_driver.find_course_by_instructor_id(value)
+            else:
+                print("invalid command")
+            
+        else:
+            print("invalid no if args passed")
 
     def view_users(self):
 
@@ -120,7 +139,24 @@ class Admin(User):
         print(f"admins:{admins}, instructors:{instructors}, students:{students}")
 
     def view_reviews(self,args=[]):
-        pass
+        if len(args)==0:
+            print(Review.reviews_overview())
+        elif len(args)==2:
+            command = args[0]
+            value = args[1]
+            review_driver = Review()
+
+            if command=='KEYWORD':
+                review_driver.find_review_by_keywords(value)
+            elif command=='ID':
+                review_driver.find_review_by_id(value)
+            elif command=='COURSE_ID':
+                review_driver.find_review_by_course_id(value)
+            else:
+                print("invalid command")
+            
+        else:
+            print("invalid no if args passed")
 
     def __str__(self) -> str:
         return super().__str__()
