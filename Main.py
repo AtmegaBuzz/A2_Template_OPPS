@@ -64,7 +64,7 @@ def process_operations(user,isAdmin=False):
             return 
         
         value = input("Value: ")
-
+        
         methods[choice](args=[command,value])
         return
 
@@ -142,6 +142,13 @@ def main():
                 login_info[5],
                 login_info[6],
                 ) 
+
+        elif login_role=="Admin":
+            user = users[login_role](
+                username=user.username,
+                password=user.password
+            )
+
         print(f"welcome {login_role.lower()} your role is {login_role}")
         
         while True:
