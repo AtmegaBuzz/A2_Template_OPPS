@@ -1,5 +1,5 @@
 from User import User
-
+ 
 class Student(User):
     def __init__(
         self, 
@@ -15,13 +15,13 @@ class Student(User):
         self.user_image_50x50 = user_image_50x50
         self.user_initials = user_initials
         self.review_id = review_id
+        print(review_id)
         super().__init__(id_, username, password)
 
     def view_courses(self,args=[]):
         course_id=None
-        with open('review.txt','r') as f:
+        with open('review.txt','r',encoding='utf-8') as f:
             reviews = f.readlines()
-        
         for review in reviews:
             review_data = review.split(";;;")
             __review_id__ = review_data[0]
@@ -30,7 +30,7 @@ class Student(User):
                 break
         if not course_id: print("no courses found")
 
-        with open('courses.txt','r') as f:
+        with open('courses.txt','r',encoding='utf-8') as f:
             courses = f.readlines()
 
         for course in courses:
@@ -43,7 +43,7 @@ class Student(User):
 
     def view_reviews(self,args=[]):
         
-        with open('review.txt','r') as f:
+        with open('review.txt','r',encoding='utf-8') as f:
             reviews = f.readlines()
         for review in reviews:
             review_data = review.split(";;;")
@@ -51,9 +51,11 @@ class Student(User):
             if review_id==self.review_id:
                 review_content = review_data[1]
                 print(review_content)
-                break
+                return
 
+        print("no reviews found")
 
+        
 
     def __str__(self) -> str:
         parent_attrs = super().__str__()

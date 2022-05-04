@@ -9,17 +9,16 @@ class User:
       
       self.id = id_
       self.username = username
-      self.password = self.encryption(self.__mod,self.__p,password)
-      
-
+      self.password = str(self.encryption(password))
+      print(self.password)
    def encryption(self,password):
       p_power = 1
       hash_value = 0
 
       for char in password:
-         hash_value = (hash_value + (ord(char)-ord('a')+1)*p_power) % self.mod
-         p_power = p_power * self.p % self.mod
-      return hash_value
+         hash_value = (hash_value + (ord(char)-ord('a')+1)*p_power) % self.__mod
+         p_power = p_power * self.__p % self.__mod
+      return str(hash_value)
 
    def login(self):
       
@@ -30,17 +29,16 @@ class User:
          'user_student.txt':'Student'
       }
       for _file_ in core:
-         with open(_file_,'r') as f:
+         with open(_file_,'r',encoding='utf-8') as f:
             users = f.readlines()
          for user in users:
             user_data = user.split(";;;")
             username = user_data[1]
             password = user_data[2]
-
-            if self.username==username and self.password==password:
-               return (True,role.get(_file_),f"{self.id};;;{self.username}")
+            if self.username==username and str(self.password)==str(password):
+               return (True,role.get(_file_),user)
          
-         return (False,None,None)
+      return (False,None,None)
 
 
    def generate_unique_user_id(self):
@@ -49,7 +47,7 @@ class User:
       while(True):
          u_id = randint(999999999,10000000000)
          for _file_ in core:
-            with open(_file_,'r') as f:
+            with open(_file_,'r',encoding='utf-8') as f:
                users = f.readlines()
             for user in users:
                user_data = user.split(";;;")

@@ -1,6 +1,3 @@
-from unittest import result
-
-from bs4 import ResultSet
 from User import User
 from Course import Course
 from Review import Review
@@ -21,12 +18,12 @@ class Instructor(User):
         self.job_title = job_title
         self.image_100x100 = image_100x100
         self.course_id_list = course_id_list
+        
         super().__init__(id_, username, password)
 
     def view_courses(self,args=[]):
 
         result = Course().find_course_by_instructor_id(self.id) 
-
         for course in result[:11]:
             print(course)
 

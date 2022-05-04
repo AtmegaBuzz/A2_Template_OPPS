@@ -21,38 +21,43 @@ class Course:
         self.course_avg_rating = course_avg_rating
         self.course_content_length = course_content_length
 
+    @classmethod
     def find_course_by_title_keyword(cls,keyword):
         result = []
-        with open('course.txt','r') as f:
+        with open('courses.txt','r',encoding='utf-8') as f:
             courses = f.readlines()
-        
+
         for course in courses:
             course_data = course.split(";;;")
-            course_title = course_data[1]
+            course_title = course_data[1].lower()
             if keyword in course_title:
-                
                 result.append(Course(*course_data))
 
+        print(result)
         return result
 
+    @classmethod
     def find_course_by_id(cls,course_id):
 
         course_id = str(course_id)
-        with open('course.txt','r') as f:
+        with open('courses.txt','r',encoding='utf-8') as f:
             courses = f.readlines()
         
         for course in courses:
             course_data = course.split(";;;")
             __course_id__ = course_data[0]
             if course_id == __course_id__:
-                return Course(*course_data)
+                cs = Course(*course_data)
+                print(cs)
+                return cs
+        print("no items found")
                 
-
+    @classmethod
     def find_course_by_instructor_id(cls,instructor_id):
         course_ids = []
         result = []
         instructor_id = str(instructor_id)
-        with open('user_instructor.txt','r') as f:
+        with open('user_instructor.txt','r',encoding='utf-8') as f:
             instructors = f.readlines()
         
         for instructor in instructors:
@@ -60,7 +65,7 @@ class Course:
             __instructor_id__ = instructor_data[0]
             if __instructor_id__==instructor_id:
                 course_ids = instructor_data[-1].split("-")
-        if len(course_ids==0): return result
+        if len(course_ids)==0: return result
         
         with open('courses.txt','r') as f:
             courses = f.readlines()
@@ -71,14 +76,16 @@ class Course:
             if course_id in course_ids:
                 result.append(Course(*course_data))
 
+        print(result)
         return result
 
         
-
+    @classmethod
     def courses_overview(cls):
         
-        with open('courses.txt','r') as f:
+        with open('courses.txt','r',encoding='utf-8') as f:
             courses = f.readlines()
+            print(courses)
             return len(courses)      
 
     def __str__(self):

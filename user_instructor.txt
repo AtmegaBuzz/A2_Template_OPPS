@@ -1,17 +1,17 @@
-4466306;;;Colt_Steele;;;4466306;;;Colt Steele;;;Developer and Bootcamp Instructor;;;https://img-c.udemycdn.com/user/100x100/4466306_6fd8_3.jpg;;;625204
-13952972;;;Maximilian_Schwarzmüller;;;13952972;;;Maximilian Schwarzmüller;;;Professional Web Developer and Instructor;;;https://img-c.udemycdn.com/user/100x100/13952972_e853.jpg;;;756150
-31334738;;;Dr._Angela_Yu;;;31334738;;;Dr. Angela Yu;;;Developer and Lead Instructor;;;https://img-c.udemycdn.com/user/100x100/31334738_a13c_2.jpg;;;1565838
-7799204;;;Jonas_Schmedtmann;;;7799204;;;Jonas Schmedtmann;;;Web Developer, Designer, and Teacher;;;https://img-c.udemycdn.com/user/100x100/7799204_2091_5.jpg;;;851712
-5487312;;;Stephen_Grider;;;5487312;;;Stephen Grider;;;Engineering Architect;;;https://img-c.udemycdn.com/user/100x100/5487312_0554.jpg;;;705264
-4387876;;;Rob_Percival;;;4387876;;;Rob Percival;;;Web Developer And Teacher;;;https://img-c.udemycdn.com/user/100x100/4387876_78bc.jpg;;;764164
-33231436;;;Codestars_by_Rob_Percival;;;33231436;;;Codestars by Rob Percival;;;Teaching the Next Generation of Coders;;;https://img-c.udemycdn.com/user/100x100/33231436_2824_3.jpg;;;764164
-7799204;;;Jonas_Schmedtmann;;;7799204;;;Jonas Schmedtmann;;;Web Developer, Designer, and Teacher;;;https://img-c.udemycdn.com/user/100x100/7799204_2091_5.jpg;;;437398
-38516954;;;Andrei_Neagoie;;;38516954;;;Andrei Neagoie;;;Senior Software Developer / Founder of zerotomastery.io;;;https://img-c.udemycdn.com/user/100x100/38516954_b11c_3.jpg;;;1430746
-13952972;;;Maximilian_Schwarzmüller;;;13952972;;;Maximilian Schwarzmüller;;;Professional Web Developer and Instructor;;;https://img-c.udemycdn.com/user/100x100/13952972_e853.jpg;;;995016
-2467626;;;Anthony_Alicea;;;2467626;;;Anthony Alicea;;;Software Developer, Architect, and UX Designer;;;https://img-c.udemycdn.com/user/100x100/2467626_f2e0.jpg;;;364426
-9685726;;;Jose_Portilla;;;9685726;;;Jose Portilla;;;Head of Data Science, Pierian Data Inc.;;;https://img-c.udemycdn.com/user/100x100/9685726_67e7_4.jpg;;;822444
-7799204;;;Jonas_Schmedtmann;;;7799204;;;Jonas Schmedtmann;;;Web Developer, Designer, and Teacher;;;https://img-c.udemycdn.com/user/100x100/7799204_2091_5.jpg;;;1026604
-13363166;;;in28Minutes_Official;;;13363166;;;in28Minutes Official;;;DevOps, Azure, GCP, Docker, Kubernetes, Java & Spring Boot;;;https://img-c.udemycdn.com/user/100x100/13363166_a747.jpg;;;1352468
-712832;;;Mosh_Hamedani;;;712832;;;Mosh Hamedani;;;Passionate Software Engineer and Best-selling Author;;;https://img-c.udemycdn.com/user/100x100/712832_5e8d_3.jpg;;;806922
-21681922;;;Brad_Traversy;;;21681922;;;Brad Traversy;;;Full Stack Web Developer & Instructor at Traversy Media;;;https://img-c.udemycdn.com/user/100x100/21681922_4513_5.jpg;;;1463348
-2467626;;;Anthony_Alicea;;;2467626;;;Anthony Alicea;;;Software Developer, Architect, and UX Designer;;;https://img-c.udemycdn.com/user/100x100/2467626_f2e0.jpg;;;461160
+4466306;;;Colt_Steele;;;14222002;;;Colt Steele;;;Developer and Bootcamp Instructor;;;https://img-c.udemycdn.com/user/100x100/4466306_6fd8_3.jpg;;;625204
+13952972;;;Maximilian_Schwarzmüller;;;14222002;;;Maximilian Schwarzmüller;;;Professional Web Developer and Instructor;;;https://img-c.udemycdn.com/user/100x100/13952972_e853.jpg;;;756150
+31334738;;;Dr._Angela_Yu;;;42034377;;;Dr. Angela Yu;;;Developer and Lead Instructor;;;https://img-c.udemycdn.com/user/100x100/31334738_a13c_2.jpg;;;1565838
+7799204;;;Jonas_Schmedtmann;;;31959017;;;Jonas Schmedtmann;;;Web Developer, Designer, and Teacher;;;https://img-c.udemycdn.com/user/100x100/7799204_2091_5.jpg;;;851712
+5487312;;;Stephen_Grider;;;86443815;;;Stephen Grider;;;Engineering Architect;;;https://img-c.udemycdn.com/user/100x100/5487312_0554.jpg;;;705264
+4387876;;;Rob_Percival;;;12850752;;;Rob Percival;;;Web Developer And Teacher;;;https://img-c.udemycdn.com/user/100x100/4387876_78bc.jpg;;;764164
+33231436;;;Codestars_by_Rob_Percival;;;28151097;;;Codestars by Rob Percival;;;Teaching the Next Generation of Coders;;;https://img-c.udemycdn.com/user/100x100/33231436_2824_3.jpg;;;764164
+7799204;;;Jonas_Schmedtmann;;;31959017;;;Jonas Schmedtmann;;;Web Developer, Designer, and Teacher;;;https://img-c.udemycdn.com/user/100x100/7799204_2091_5.jpg;;;437398
+38516954;;;Andrei_Neagoie;;;25640770;;;Andrei Neagoie;;;Senior Software Developer / Founder of zerotomastery.io;;;https://img-c.udemycdn.com/user/100x100/38516954_b11c_3.jpg;;;1430746
+13952972;;;Maximilian_Schwarzmüller;;;71852408;;;Maximilian Schwarzmüller;;;Professional Web Developer and Instructor;;;https://img-c.udemycdn.com/user/100x100/13952972_e853.jpg;;;995016
+2467626;;;Anthony_Alicea;;;67856076;;;Anthony Alicea;;;Software Developer, Architect, and UX Designer;;;https://img-c.udemycdn.com/user/100x100/2467626_f2e0.jpg;;;364426
+9685726;;;Jose_Portilla;;;68722006;;;Jose Portilla;;;Head of Data Science, Pierian Data Inc.;;;https://img-c.udemycdn.com/user/100x100/9685726_67e7_4.jpg;;;822444
+7799204;;;Jonas_Schmedtmann;;;31959017;;;Jonas Schmedtmann;;;Web Developer, Designer, and Teacher;;;https://img-c.udemycdn.com/user/100x100/7799204_2091_5.jpg;;;1026604
+13363166;;;in28Minutes_Official;;;6711879;;;in28Minutes Official;;;DevOps, Azure, GCP, Docker, Kubernetes, Java & Spring Boot;;;https://img-c.udemycdn.com/user/100x100/13363166_a747.jpg;;;1352468
+712832;;;Mosh_Hamedani;;;40263363;;;Mosh Hamedani;;;Passionate Software Engineer and Best-selling Author;;;https://img-c.udemycdn.com/user/100x100/712832_5e8d_3.jpg;;;806922
+21681922;;;Brad_Traversy;;;33497219;;;Brad Traversy;;;Full Stack Web Developer & Instructor at Traversy Media;;;https://img-c.udemycdn.com/user/100x100/21681922_4513_5.jpg;;;1463348
+2467626;;;Anthony_Alicea;;;67856076;;;Anthony Alicea;;;Software Developer, Architect, and UX Designer;;;https://img-c.udemycdn.com/user/100x100/2467626_f2e0.jpg;;;461160

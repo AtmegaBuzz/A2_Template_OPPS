@@ -11,7 +11,7 @@ class Admin(User):
 
     def register_admin(self):
         
-        with open('user_admin.txt','r') as f:
+        with open('user_admin.txt','r',encoding='utf-8') as f:
             admins = f.readlines()
 
         for admin in admins:
@@ -22,17 +22,17 @@ class Admin(User):
                 print("Admin already exist")
                 return 
         
-        with open('user_admin.txt','a') as f:
+        with open('user_admin.txt','a',encoding='utf-8') as f:
             f.write(f"{self.id};;;{self.username};;;{self.password}\n")
         
 
     def extract_course_info(self):
         filename = "data/course_data/raw_data2.txt"
-        with open(filename,'r') as f:
+        with open(filename,'r',encoding='utf-8') as f:
             raw_data = f.read()
         course_data = json.loads(raw_data)["unit"]["items"]
 
-        with open('courses.txt','a') as f:
+        with open('courses.txt','a',encoding='utf-8') as f:
             
             for course in course_data:
                 course_id = course.get("id")
@@ -51,13 +51,13 @@ class Admin(User):
         filenames = glob.glob("data/review_data/*.json")
 
         for filename in filenames: 
-            with open(filename,'r') as f:
+            with open(filename,'r',encoding='utf-8') as f:
                 raw_data = f.read()
 
             review_data = json.loads(raw_data)
             reviews = review_data['results']
 
-            with open('review.txt','a') as f:
+            with open('review.txt','a',encoding='utf-8') as f:
                 
                 for review in reviews:
                     course_id = review.get('id')
@@ -70,13 +70,13 @@ class Admin(User):
     def extract_students_info(self):
         filenames = glob.glob("data/review_data/*.json")
         for filename in filenames:
-            with open(filename,'r') as f:
+            with open(filename,'r',encoding='utf-8') as f:
                 raw_data = f.read()      
             
             review_data = json.loads(raw_data)
             reviews = review_data['results']
 
-            with open('user_student.txt','a') as f:
+            with open('user_student.txt','a',encoding='utf-8') as f:
                 for review in reviews:
                     user_id = review.get('user').get('id')
                     username = review.get('user').get('name').lower().replace(" ","_")
@@ -91,11 +91,11 @@ class Admin(User):
 
     def extract_instructor_info(self):
         filename = "data/course_data/raw_data2.txt"
-        with open(filename,'r') as f:
+        with open(filename,'r',encoding='utf-8') as f:
             raw_data = f.read()
         course_data = json.loads(raw_data)["unit"]["items"]
 
-        with open('user_instructor.txt','a') as f:
+        with open('user_instructor.txt','a',encoding='utf-8') as f:
             
             for course in course_data:
                 instrustors = course.get("visible_instructors",[])
@@ -104,7 +104,7 @@ class Admin(User):
                 for instrustor in instrustors:
                     instrustor_id = instrustor.get("id")
                     username = instrustor.get("display_name","").replace(" ","_")
-                    password = self.encryption(instrustor_id)
+                    password = self.encryption(str(instrustor_id))
                     display_name = instrustor.get("display_name")
                     job_title = instrustor.get("job_title").replace("\n"," ")
                     image_100x100 = instrustor.get("image_100x100")
@@ -118,9 +118,9 @@ class Admin(User):
         self.extract_students_info()
 
     def remove_data(self):
-        core_data_files = ['course.txt','review.txt','user_student.txt','user_instructor.txt']
+        core_data_files = ['courses.txt','review.txt','user_student.txt','user_instructor.txt']
         for core_file in core_data_files:
-            with open(core_file,'w') as f:
+            with open(core_file,'w',encoding='utf-8') as f:
                 f.write("")
         
 
@@ -146,9 +146,9 @@ class Admin(User):
 
     def view_users(self):
 
-        admins = sum(1 for line in open('user_admin.txt'))
-        instructors = sum(1 for line in open('user_instructor.txt'))
-        students = sum(1 for line in open('user_student.txt'))
+        admins = sum(1 for line in open('user_admin.txt','r',encoding='utf-8'))
+        instructors = sum(1 for line in open('user_instructor.txt','r',encoding='utf-8'))
+        students = sum(1 for line in open('user_student.txt','r',encoding='utf-8'))
 
         print(f"admins:{admins}, instructors:{instructors}, students:{students}")
 
@@ -176,6 +176,3 @@ class Admin(User):
         return super().__str__()
         
 
-
-admin = Admin()
-admin.view_users()
